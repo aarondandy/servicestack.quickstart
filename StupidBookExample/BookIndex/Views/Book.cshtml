@@ -1,0 +1,17 @@
+﻿@inherits ServiceStack.Razor.ViewPage<BookIndex.Book>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Book: @Model.Title</title>
+</head>
+<body>
+  <h1>@Model.Title</h1>
+  Authors:
+  <ul>
+    @foreach (var author in Model.Authors.Split(',').Select(x => x.Trim())) {
+      <li>@author</li>
+    }
+  </ul>
+  Keywords: @Model.Keywords
+</body>
+</html>

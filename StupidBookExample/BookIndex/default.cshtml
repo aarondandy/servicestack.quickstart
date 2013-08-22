@@ -1,0 +1,22 @@
+﻿@inherits ServiceStack.Razor.ViewPage<BookIndex.Library>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>A Fake Library</title>
+</head>
+<body>
+  <h1>Catalog</h1>
+  <table>
+    <tr><th>Title</th><th>Author(s)</th><th>Keywords</th></tr>
+    @foreach (var book in Model.GetAllBooks()) {
+      <tr>
+        <td>
+          <a href="@Url.Content("/books/detail?title=" + Uri.EscapeDataString(book.Title))">@book.Title</a>
+        </td>
+      </tr>
+    }
+  </table>
+  
+  <small><a href="readme">readme</a></small>
+</body>
+</html>
